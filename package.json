@@ -1,0 +1,29 @@
+{
+  "name": "Cave",
+  "version": "0.1.0",
+  "scripts": {
+    "build:scss": "node-sass --include-path scss scss/application.scss css/application.css",
+    "build:css": "postcss --use autoprefixer -o dist/application.css css/application.css",
+    "build:js": "rollup -c",
+    "build:code": "run-s build:js",
+    "build:style": "run-s build:scss build:css",
+    "build": "run-s build:style build:code",
+    "watch:js": "rollup -c -w",
+    "watch:scss": "nodemon -e scss -x \"npm run build:scss\"",
+    "watch:css": "nodemon -e css -x \"npm run build:css\"",
+    "prewatch": "run-s build:style",
+    "watch": "run-p watch:scss watch:css watch:js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.4",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.14.8",
+    "npm-run-all": "^4.1.2",
+    "postcss": "^6.0.16",
+    "postcss-cli": "^4.1.1",
+    "rollup": "^0.53.3",
+    "rollup-plugin-livereload": "^0.6.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-serve": "^0.4.2"
+  }
+}
