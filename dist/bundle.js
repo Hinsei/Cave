@@ -6,9 +6,6 @@ var global$1 = typeof global !== "undefined" ? global :
             typeof self !== "undefined" ? self :
             typeof window !== "undefined" ? window : {}
 
-// shim for using process in browser
-// based off https://github.com/defunctzombie/node-process/blob/master/browser.js
-
 function defaultSetTimout() {
     throw new Error('setTimeout has not been defined');
 }
@@ -239,7 +236,6 @@ object-assign
 @license MIT
 */
 
-/* eslint-disable no-unused-vars */
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
@@ -331,15 +327,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 var emptyObject_1 = emptyObject;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -381,17 +368,6 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 var V=Object.freeze({default:U});
 var W=V&&U||V;var react_production_min=W["default"]?W["default"]:W;
 
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
 var validateFormat = function validateFormat(format) {};
 
 if (process.env.NODE_ENV !== 'production') {
@@ -424,13 +400,6 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
 
 var warning = emptyFunction_1;
 
@@ -1932,21 +1901,6 @@ var ExecutionEnvironment = {
 
 var ExecutionEnvironment_1 = ExecutionEnvironment;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-/**
- * Upstream version of event listener. Does not take into account specific
- * nature of platform.
- */
 var EventListener = {
   /**
    * Listen to DOM events during the bubble phase.
@@ -2005,27 +1959,6 @@ var EventListener = {
 
 var EventListener_1 = EventListener;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/* eslint-disable fb-www/typeof-undefined */
-
-/**
- * Same as document.activeElement but wraps in a try-catch block. In IE it is
- * not safe to call document.activeElement if there is nothing focused.
- *
- * The activeElement will be null only if the document or document body is not
- * yet defined.
- *
- * @param {?DOMDocument} doc Defaults to current document.
- * @return {?DOMElement}
- */
 function getActiveElement(doc) /*?DOMElement*/{
   doc = doc || (typeof document !== 'undefined' ? document : undefined);
   if (typeof doc === 'undefined') {
@@ -2104,19 +2037,6 @@ function shallowEqual(objA, objB) {
 
 var shallowEqual_1 = shallowEqual;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-/**
- * @param {*} object The object to check.
- * @return {boolean} Whether or not the object is a DOM node.
- */
 function isNode(object) {
   var doc = object ? object.ownerDocument || object : document;
   var defaultView = doc.defaultView || window;
@@ -2125,43 +2045,12 @@ function isNode(object) {
 
 var isNode_1 = isNode;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
-
-
-/**
- * @param {*} object The object to check.
- * @return {boolean} Whether or not the object is a DOM text node.
- */
 function isTextNode(object) {
   return isNode_1(object) && object.nodeType == 3;
 }
 
 var isTextNode_1 = isTextNode;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-
-
-/*eslint-disable no-bitwise */
-
-/**
- * Checks if a given DOM node contains or is another DOM node.
- */
 function containsNode(outerNode, innerNode) {
   if (!outerNode || !innerNode) {
     return false;
@@ -2188,10 +2077,6 @@ var containsNode_1 = containsNode;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- */
-
-/**
- * @param {DOMElement} node input/textarea to focus
  */
 
 function focusNode(node) {
@@ -2458,15 +2343,6 @@ var Sg={createPortal:Qg,findDOMNode:function(a){if(null==a)return null;if(1===a.
 E$1("40");return a._reactRootContainer?(Z.unbatchedUpdates(function(){Pg(null,null,a,!1,function(){a._reactRootContainer=null;});}), !0):!1},unstable_createPortal:Qg,unstable_batchedUpdates:tc,unstable_deferredUpdates:Z.deferredUpdates,flushSync:Z.flushSync,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{EventPluginHub:mb,EventPluginRegistry:Va,EventPropagators:Cb,ReactControlledComponent:qc,ReactDOMComponentTree:sb,ReactDOMEventListener:xd}};
 Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",rendererPackageName:"react-dom"});var Tg=Object.freeze({default:Sg}); var Ug=Tg&&Sg||Tg;var reactDom_production_min=Ug["default"]?Ug["default"]:Ug;
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
-
 var _uppercasePattern = /([A-Z])/g;
 
 /**
@@ -2510,15 +2386,6 @@ function hyphenateStyleName(string) {
 }
 
 var hyphenateStyleName_1 = hyphenateStyleName;
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @typechecks
- */
 
 var _hyphenPattern = /-(.)/g;
 
@@ -18056,38 +17923,98 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
-var WelcomeComponent = function (_React$Component) {
-  inherits(WelcomeComponent, _React$Component);
+var NavbarToggle = function (_React$Component) {
+  inherits(NavbarToggle, _React$Component);
 
-  function WelcomeComponent() {
-    classCallCheck(this, WelcomeComponent);
-    return possibleConstructorReturn(this, (WelcomeComponent.__proto__ || Object.getPrototypeOf(WelcomeComponent)).apply(this, arguments));
+  function NavbarToggle() {
+    classCallCheck(this, NavbarToggle);
+    return possibleConstructorReturn(this, (NavbarToggle.__proto__ || Object.getPrototypeOf(NavbarToggle)).apply(this, arguments));
   }
 
-  createClass(WelcomeComponent, [{
+  createClass(NavbarToggle, [{
     key: "render",
     value: function render() {
       return react.createElement(
-        "article",
-        null,
+        "div",
+        { id: "navbar_toggle" },
         react.createElement(
-          "h1",
+          "span",
           null,
-          "Hi"
-        ),
-        react.createElement(
-          "em",
-          null,
-          "Aiman"
+          "+"
         )
       );
     }
   }]);
-  return WelcomeComponent;
+  return NavbarToggle;
+}(react.Component);
+
+var Navbar = function (_React$Component) {
+  inherits(Navbar, _React$Component);
+
+  function Navbar() {
+    classCallCheck(this, Navbar);
+    return possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
+  }
+
+  createClass(Navbar, [{
+    key: 'render',
+    value: function render() {
+      return react.createElement(
+        'div',
+        null,
+        react.createElement(NavbarToggle, null),
+        react.createElement(
+          'div',
+          { id: 'logo' },
+          react.createElement(
+            'span',
+            null,
+            'LOGO'
+          )
+        )
+      );
+    }
+  }]);
+  return Navbar;
+}(react.Component);
+
+var Welcome = function (_React$Component) {
+  inherits(Welcome, _React$Component);
+
+  function Welcome() {
+    classCallCheck(this, Welcome);
+    return possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
+  }
+
+  createClass(Welcome, [{
+    key: 'render',
+    value: function render() {
+      return react.createElement(Navbar, null);
+    }
+  }]);
+  return Welcome;
+}(react.Component);
+
+var App = function (_React$Component) {
+  inherits(App, _React$Component);
+
+  function App() {
+    classCallCheck(this, App);
+    return possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+  }
+
+  createClass(App, [{
+    key: "render",
+    value: function render() {
+      return react.createElement(Welcome, null);
+    }
+  }]);
+  return App;
 }(react.Component);
 
 var root = document.querySelector("main");
 
-reactDom.render(react.createElement(WelcomeComponent, null), root);
+reactDom.render(react.createElement(App, null), root);
 
 }());
+//# sourceMappingURL=bundle.js.map

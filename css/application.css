@@ -1,2 +1,23 @@
-body {
-  background: blue; }
+#navbar_toggle {
+  height: 50px;
+  width: 50px;
+  border: black 1px solid;
+  border-radius: 100%;
+  display: inline-block;
+  opacity: 0.5; }
+  #navbar_toggle:hover {
+    opacity: 1;
+    cursor: pointer; }
+  #navbar_toggle span {
+    left: 27%;
+    font-size: 2.5em;
+    position: relative; }
+
+#logo {
+  height: 50px;
+  background: red;
+  display: inline;
+  right: 0;
+  position: absolute; }
+  #logo span {
+    font-size: 2.5em; }

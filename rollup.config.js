@@ -9,7 +9,8 @@ export default {
   input: "src/main.js",
   output: {
     file: "dist/bundle.js",
-    format: "iife"
+    format: "iife",
+    sourcemap: true
   },
   plugins: [
     babel({
@@ -34,7 +35,7 @@ export default {
       browser: true,
       main: true
     }),
-    serve("dist"),
-    livereload("dist")
+    livereload("dist"),
+    serve("dist")
   ]
 }
