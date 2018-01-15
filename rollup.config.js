@@ -19,6 +19,11 @@ export default {
       presets: [["es2015", {modules: false}], "stage-0", "react"],
       plugins: ["external-helpers"]
     }),
+    resolve({
+      jsnext: true,
+      browser: true,
+      main: true
+    }),
     commonjs({
       exclude: "node_modules/process-es6/**",
       include: [
@@ -27,14 +32,10 @@ export default {
         "node_modules/object-assign/**",
         "node_modules/react/**",
         "node_modules/react-dom/**",
-        "node_modules/prop-types/**"
-      ]
+        "node_modules/prop-types/**",
+      ],
     }),
     globals(),
-    resolve({
-      browser: true,
-      main: true
-    }),
     livereload("dist"),
     serve("dist")
   ]

@@ -4,6 +4,7 @@
   font-family: 'Bilbo Swash Caps', cursive;
   font-size: 100px;
   text-align: center;
+  margin: 0;
 }
 
 .item_container {
@@ -17,7 +18,9 @@
 }
 
 article {
-  width: 500px;
-  height: 500px;
-  border: 2px solid black;
+  width: 95%;
+  height: 80%;
+  margin-left: 2.5%;
+  border: 1px dotted black;
+  border-radius: 10px;
 }
