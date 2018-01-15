@@ -1,23 +1,16 @@
-#navbar_toggle {
-  height: 50px;
-  width: 50px;
-  border: black 1px solid;
-  border-radius: 100%;
-  display: inline-block;
-  opacity: 0.5; }
-  #navbar_toggle:hover {
-    opacity: 1;
-    cursor: pointer; }
-  #navbar_toggle span {
-    left: 27%;
-    font-size: 2.5em;
-    position: relative; }
+@import url("https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps|Open+Sans");
+#title {
+  font-family: 'Bilbo Swash Caps', cursive;
+  font-size: 100px;
+  text-align: center; }
 
-#logo {
-  height: 50px;
-  background: red;
-  display: inline;
-  right: 0;
-  position: absolute; }
-  #logo span {
-    font-size: 2.5em; }
+.item_container .text {
+  font-family: 'Bilbo Swash Caps', cursive;
+  font-size: 40px;
+  text-align: center;
+  cursor: pointer; }
+
+article {
+  width: 500px;
+  height: 500px;
+  border: 2px solid black; }

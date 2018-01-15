@@ -17923,76 +17923,110 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
-var NavbarToggle = function (_React$Component) {
-  inherits(NavbarToggle, _React$Component);
+var Item$1 = function (_React$Component) {
+  inherits(Item, _React$Component);
 
-  function NavbarToggle() {
-    classCallCheck(this, NavbarToggle);
-    return possibleConstructorReturn(this, (NavbarToggle.__proto__ || Object.getPrototypeOf(NavbarToggle)).apply(this, arguments));
+  function Item(props) {
+    classCallCheck(this, Item);
+
+    var _this = possibleConstructorReturn(this, (Item.__proto__ || Object.getPrototypeOf(Item)).call(this, props));
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
-  createClass(NavbarToggle, [{
+  createClass(Item, [{
+    key: "handleClick",
+    value: function handleClick() {
+      if (this.props.revert !== true) {
+        this.props.handleClick(this.props.text);
+      } else {
+        this.props.handleClick("none");
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react.createElement(
         "div",
-        { id: "navbar_toggle" },
+        { className: "item_container" },
         react.createElement(
-          "span",
-          null,
-          "+"
+          "p",
+          { className: "text", onClick: this.handleClick },
+          this.props.text
         )
       );
     }
   }]);
-  return NavbarToggle;
+  return Item;
+}(react.Component);
+
+var Article = function (_React$Component) {
+  inherits(Article, _React$Component);
+
+  function Article() {
+    classCallCheck(this, Article);
+    return possibleConstructorReturn(this, (Article.__proto__ || Object.getPrototypeOf(Article)).apply(this, arguments));
+  }
+
+  createClass(Article, [{
+    key: 'render',
+    value: function render() {
+      return react.createElement('article', null);
+    }
+  }]);
+  return Article;
 }(react.Component);
 
 var Navbar = function (_React$Component) {
   inherits(Navbar, _React$Component);
 
-  function Navbar() {
+  function Navbar(props) {
     classCallCheck(this, Navbar);
-    return possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).apply(this, arguments));
+
+    var _this = possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
+
+    _this.state = {
+      selection: "none"
+    };
+
+    _this.handleClick = _this.handleClick.bind(_this);
+    return _this;
   }
 
   createClass(Navbar, [{
+    key: 'handleClick',
+    value: function handleClick(new_state) {
+      this.setState(function () {
+        return { selection: new_state };
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      return react.createElement(
-        'div',
-        null,
-        react.createElement(NavbarToggle, null),
-        react.createElement(
-          'div',
-          { id: 'logo' },
-          react.createElement(
-            'span',
-            null,
-            'LOGO'
-          )
-        )
-      );
+      if (this.state.selection === "none") {
+        return react.createElement(
+          'nav',
+          null,
+          react.createElement(Item$1, { text: 'Articles', handleClick: this.handleClick }),
+          react.createElement(Item$1, { text: 'Archives', handleClick: this.handleClick }),
+          react.createElement(Item$1, { text: 'About', handleClick: this.handleClick })
+        );
+      } else {
+        return react.createElement(
+          'nav',
+          null,
+          react.createElement(Item$1, {
+            text: this.state.selection,
+            handleClick: this.handleClick,
+            revert: true
+          }),
+          react.createElement(Article, null)
+        );
+      }
     }
   }]);
   return Navbar;
-}(react.Component);
-
-var Welcome = function (_React$Component) {
-  inherits(Welcome, _React$Component);
-
-  function Welcome() {
-    classCallCheck(this, Welcome);
-    return possibleConstructorReturn(this, (Welcome.__proto__ || Object.getPrototypeOf(Welcome)).apply(this, arguments));
-  }
-
-  createClass(Welcome, [{
-    key: 'render',
-    value: function render() {
-      return react.createElement(Navbar, null);
-    }
-  }]);
-  return Welcome;
 }(react.Component);
 
 var App = function (_React$Component) {
@@ -18006,7 +18040,16 @@ var App = function (_React$Component) {
   createClass(App, [{
     key: "render",
     value: function render() {
-      return react.createElement(Welcome, null);
+      return react.createElement(
+        "div",
+        null,
+        react.createElement(
+          "p",
+          { id: "title" },
+          "Hinsei's Cave"
+        ),
+        react.createElement(Navbar, null)
+      );
     }
   }]);
   return App;
