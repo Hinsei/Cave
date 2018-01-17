@@ -25,7 +25,6 @@ export default class Navbar extends React.Component {
       return(
         <nav>
           <Item text="Articles" handleClick={this.handleClick} />
-          <Item text="Archives" handleClick={this.handleClick} />
           <Item text="About" handleClick={this.handleClick} />
         </nav>
       )
@@ -37,7 +36,7 @@ export default class Navbar extends React.Component {
             handleClick={this.handleClick} 
             revert={true} 
           />
-          <Article />
+          { Article(this.state.selection) }
         </nav>
       )
     }

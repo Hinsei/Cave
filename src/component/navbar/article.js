@@ -1,12 +1,19 @@
 import React from 'react'
-import Markdown from 'react-markdown'
+import Store from '../../storage'
 
-export default class Article extends React.Component {
-  render(){
-    return(
-      <article>
-        <Markdown />
-      </article>
-    )
-  }
+function rawMarkdown (filename) {
+  return { __html: Store(filename) }
 }
+
+function Article (filename) {
+  return (
+    <article >
+      <div className="container_md" dangerouslySetInnerHTML={ rawMarkdown(filename) }></div>
+    </article>
+  )
+}
+
+export default Article
+
+
+

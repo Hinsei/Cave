@@ -17,3 +17,7 @@ article {
   margin-left: 2.5%;
   border: 1px dotted black;
   border-radius: 10px; }
+  article .container_md {
+    margin-left: 4px;
+    margin-right: 4px;
+    line-height: 40px; }

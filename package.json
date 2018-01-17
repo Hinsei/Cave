@@ -36,7 +36,6 @@
     "rollup-plugin-serve": "^0.4.2"
   },
   "dependencies": {
-    "marked": "^0.3.12",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "rollup-plugin-md": "0.0.7"

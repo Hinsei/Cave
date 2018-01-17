@@ -4,18 +4,20 @@ import babel      from "rollup-plugin-babel";
 import commonjs   from "rollup-plugin-commonjs";
 import resolve    from "rollup-plugin-node-resolve";
 import globals    from "rollup-plugin-node-globals";
+import md         from "rollup-plugin-md";
 
 export default {
   input: "src/main.js",
   output: {
     file: "dist/bundle.js",
     format: "iife",
-    sourcemap: true
+    sourcemap: true,
+
   },
   plugins: [
     babel({
       babelrc: false,
-      exclude: "node_modules/**",
+      exclude: ["node_modules/**", "markdown/**"],
       presets: [["es2015", {modules: false}], "stage-0", "react"],
       plugins: ["external-helpers"]
     }),
@@ -34,6 +36,14 @@ export default {
         "node_modules/react-dom/**",
         "node_modules/prop-types/**",
       ],
+    }),
+    md({
+      watcher: {
+        gfm: true,
+        breaks: true,
+        sanitize: true
+      }
+
     }),
     globals(),
     livereload("dist"),
